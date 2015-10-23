@@ -1,0 +1,11 @@
+{
+  "name": "inview",
+  "version": "0.0.1",
+  "description": "JavaScript library to classify elements that are visible to a user",
+  "author": "Stephen K",
+  "license": "MIT",
+  "main": "inview.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
