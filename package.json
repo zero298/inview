@@ -22,5 +22,13 @@
     "view",
     "event",
     "viewport"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zero298/inview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zero298/inview/issues"
+  },
+  "homepage": "https://github.com/zero298/inview#readme"
 }
