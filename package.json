@@ -4,7 +4,7 @@
   "description": "JavaScript library to classify elements that are visible to a user",
   "author": "Stephen K",
   "license": "MIT",
-  "main": "inview.js",
+  "main": "src/inview.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

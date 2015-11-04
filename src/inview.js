@@ -1,4 +1,5 @@
-/*jslint node: true*/
+/*jslint node: true, browser: true*/
+/*global CustomEvent*/
 
 "use strict";
 
@@ -6,7 +7,7 @@ var tagsToMark, classToAppend;
 
 /**
  * Viewable Highlighter module
- * @module marker
+ * @module inview
  */
 
 tagsToMark = [];
@@ -15,7 +16,7 @@ classToAppend = "";
 
 /**
  * Function to see if a given element is in view of the user
- * @memberof module:marker
+ * @memberof module:inview
  * @param {HTMLElement} el The element to check in view
  * @returns {Boolean} Whether the given element is in view
  */
@@ -32,7 +33,8 @@ function isInView(el) {
 
 /**
  * Function to mark an element with class that denotes being in view
- * @memberof module:marker
+ * @memberof module:inview
+ * @fires module:inview#InviewEvent
  * @param {HTMLElement} el Element to mark in view
  */
 function markInView(el) {
@@ -40,6 +42,15 @@ function markInView(el) {
     if (isInView(el)) {
         // If it is, mark it as such
         el.className = classToAppend;
+
+        // Fire event saying that the element is in view
+
+        /**
+         * Event fired when an element comes into view
+         * @event module:inview#InviewEvent
+         * @type {Object}
+         */
+        el.dispatchEvent(new CustomEvent("inview"));
     } else {
         // Otherwise remove its class
         el.removeAttribute("class");
@@ -48,7 +59,7 @@ function markInView(el) {
 
 /**
  * Array reduce functor that gets the elements of type provided to the reduce
- * @memberof module:marker
+ * @memberof module:inview
  * @param {(HTMLElement[] | String)} previousVal Nodes that have already been found or the type of the node to search for
  * @param {String} [currVal] Type of the nodes to find
  * @returns {HTMLElement[]} All elements of provided node type as well as the ones already found
@@ -81,7 +92,7 @@ function getElements(previousVal, currVal) {
 
 /**
  * Function to mark all elements of the necessary types
- * @memberof module:marker
+ * @memberof module:inview
  */
 function markAllInView() {
     var initialReduceVal, iterables;
@@ -98,7 +109,7 @@ function markAllInView() {
 
 /**
  * Function to attach the window listeners which cause marking refresh
- * @memberof module:marker
+ * @memberof module:inview
  */
 function load() {
     // We refresh on scroll
