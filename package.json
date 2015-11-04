@@ -1,11 +1,26 @@
 {
   "name": "inview",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JavaScript library to classify elements that are visible to a user",
   "author": "Stephen K",
   "license": "MIT",
   "main": "src/inview.js",
   "scripts": {
+    "doc": "jsdoc --verbose -c conf/jsdoc.json",
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "devDependencies": {
+    "jsdoc": "^3.3.3"
+  },
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "jsdoc": "^3.3.3"
+  },
+  "keywords": [
+    "view",
+    "event",
+    "viewport"
+  ]
 }
